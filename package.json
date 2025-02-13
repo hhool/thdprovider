@@ -4,10 +4,10 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "preinstall": "export PUPPETEER_SKIP_DOWNLOAD=true",
+    "preinstall": "export PUPPETEER_SKIP_DOWNLOAD=true && cp .env.example .env",
     "build": "tsc --outDir dist",
     "start": "node dist/index.js",
-    "dev": "nodemon --watch src --ext ts --exec \"tsc --noemit && node --import=./register.js src/index.ts\"",
+    "dev": "nodemon --watch src --ext ts --exec \"node --import=./register.js src/index.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\""
   },
@@ -21,10 +21,15 @@
   "dependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@movie-web/providers": "github:hhool/providers",
-    "express": "^4.21.2"
+    "@types/node-fetch": "^2.6.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
@@ -37,5 +42,9 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "pnpm": {
+    "overrides": {
+    }
+  }
 }
