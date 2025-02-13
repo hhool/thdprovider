@@ -60,3 +60,5 @@ build/
 *.njsproj
 *.sln
 *.sw?
+
+.deps/
