@@ -1,12 +1,11 @@
 import express from 'express';
-import { processRequest } from './process';
+import { processRequest } from './process.js'; // 注意添加 .js 扩展名
+import { Request, Response } from 'express';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-
-import { Request, Response } from 'express';
 
 app.post('/process', (req: Request, res: Response) => {
   const requestData = req.body;
